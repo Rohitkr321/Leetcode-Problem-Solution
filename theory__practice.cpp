@@ -99,5 +99,59 @@ int main() {
           print(head);
 }
 ************************End*************************
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node {
+    public:
+    int linkedListData;
+    Node* linkedListNextNodeAddress;
+    Node (int linkedListData) {
+        this -> linkedListData = linkedListData;
+        this -> linkedListNextNodeAddress = NULL;
+    }
+};
+void insertAtHead(Node* & head, int data) {
+    Node* temp = new Node(data);
+    temp  -> linkedListNextNodeAddress = head;
+    head = temp;
+}
+void insertAtTail(Node* & tail, int data) {
+    Node* temp = new Node(data);
+    tail  -> linkedListNextNodeAddress = temp;
+    tail = temp;
+}
+void print(Node* &head) {
+    Node* temp = head;
+    while (temp != NULL) {
+        cout << temp -> linkedListData << "-> ";
+        temp = temp -> linkedListNextNodeAddress;
+    };
+    cout << endl;
+};
+int main() {
+    int length;
+    cin>> length;
+    vector<int>data(length);
+    for (int i=0; i< length; i++) {
+        cin>>data[i];
+    }
+    Node* node = new Node(20);
+    Node* head = node;
+    Node* tail = node;
+    cout <<"Start Inserting At Head " << endl;
+    for (int i=0; i< length; i ++) {
+        insertAtHead(head, data[i]);
+        print(head);
+        // Node* node1 = new Node(data[i]);
+        // cout << node1->linkedListData << "-> ";
+        // cout << node1 ->linkedListNextNodeAddress << " "<< endl;
+    }
+    cout <<"Start Inserting At Tail " << endl;
+    for (int i=0; i< length; i ++) {
+        insertAtTail(tail, data[i]);
+        print(head);
+    }
+}
 
 */
